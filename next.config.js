@@ -1,28 +1,18 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  async headers() {
-    return [
-      {
-        // Serve APK files with correct headers
-        source: '/downloads/:path*.apk',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/vnd.android.package-archive',
-          },
-          {
-            key: 'Content-Disposition',
-            value: 'attachment',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
-  },
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   images: {
-    domains: ['your-project.supabase.co'],
+    remotePatterns: [
+      // AzuraCast album art
+      { protocol: 'https', hostname: '*.longhaulfm.co.za' },
+      // Supabase storage
+      { protocol: 'https', hostname: '*.supabase.co' },
+    ],
   },
-};
+  // Required for Supabase auth cookies
+  experimental: {
+    serverActions: { allowedOrigins: ['longhaulfm.co.za'] },
+  },
+}
+
+export default nextConfig
