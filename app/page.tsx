@@ -9,7 +9,7 @@ import { PartnerStrip }  from '@/components/PartnerStrip'
 
 export default function HomePage() {
   return (
-    <>
+    <section className="px-6 py-6">
       {/* Now playing — client, realtime */}
       <NowPlaying />
 
@@ -37,6 +37,6 @@ export default function HomePage() {
           ))}
         </div>
       </div>
-    </>
+    </section>
   )
 }

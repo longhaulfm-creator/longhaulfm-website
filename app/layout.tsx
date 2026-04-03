@@ -33,13 +33,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='dark'>
       <body>
         <div className="min-h-dvh flex flex-col">
+          <Nav />
           <main className="flex-1 pb-20">
             {children}
           </main>
-          <Nav />
         </div>
       </body>
     </html>
