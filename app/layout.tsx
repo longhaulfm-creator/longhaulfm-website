@@ -2,6 +2,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { Nav } from '@/components/Nav'
+import Footer from '@/components/footer/Footer';
 
 export const metadata: Metadata = {
   title:       'Long Haul FM — KwaZulu-Natal',
@@ -40,6 +41,7 @@ export default function RootLayout({
           <main className="flex-1 pb-20">
             {children}
           </main>
+          <Footer />
         </div>
       </body>
     </html>

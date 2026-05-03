@@ -2,118 +2,104 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About — Long Haul FM',
-  description: 'About Long Haul FM, the internet radio station built for truckers in KwaZulu-Natal.',
+  title: 'About — Longhaul FM',
+  description: 'About Longhaul FM, the broadcast infrastructure built for the brotherhood of the road.',
 }
 
 export default function AboutPage() {
   return (
-    <div className="site-container py-6">
-      <h1 className="font-display text-4xl tracking-wider text-amber mb-1">About Us</h1>
-      <p className="font-ui text-xs text-ink-dim tracking-widest uppercase mb-8">
-        Long Haul FM · Est. 2025
-      </p>
+    <div className="site-container py-12 px-6 flex flex-col gap-10">
+      
+      {/* Header Section */}
+      <header className="border-b border-marking pb-6">
+        <h1 className="font-display text-4xl tracking-tight text-amber uppercase mb-2">Manifest</h1>
+        <p className="font-mono text-[10px] text-ink-dim tracking-[0.3em] uppercase">
+          Longhaul FM · Registered Broadcast · Est. 2025
+        </p>
+      </header>
 
-      {/* Mission */}
-      <div className="card mb-4">
-        <div className="card-header">
-          <span className="card-title">Our Mission</span>
+      {/* Mission Section */}
+      <section className="grid md:grid-cols-3 gap-6">
+        <div className="md:col-span-1">
+          <h2 className="font-display text-amber text-sm uppercase tracking-widest">Our Mission</h2>
         </div>
-        <div className="p-4">
-          <p className="font-body text-sm text-ink-muted leading-relaxed">
-            Long Haul FM is built by truckers, for truckers. We broadcast across KwaZulu-Natal
-            in English, Afrikaans, isiZulu and ChiShona — because the N3 belongs to everyone
-            on it.
+        <div className="md:col-span-2 flex flex-col gap-4">
+          <p className="font-body text-sm text-ink leading-relaxed">
+            Longhaul FM is built by truckers, for truckers. We broadcast across the SADC network—specifically the N3 corridor—because the road belongs to everyone on it.
           </p>
-          <p className="font-body text-sm text-ink-muted leading-relaxed mt-3">
-            We deliver live road alerts, dedications, regulatory news, and music that keeps
-            you moving — whether you're heading into Durban, climbing the Drakensberg, or
-            parked up in Estcourt.
+          <p className="font-body text-sm text-ink-dim leading-relaxed">
+            We deliver live road alerts, carrier news, and the music that keeps the wheels turning—whether you're heading into Durban, climbing the Drakensberg, or parked up in Estcourt.
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* Languages */}
-      <div className="card mb-4">
-        <div className="card-header">
-          <span className="card-title">Languages</span>
-        </div>
-        <div className="p-4 grid grid-cols-2 gap-3">
+      {/* Broadcast Schedule / Languages */}
+      <section className="border-t border-marking pt-10">
+        <h2 className="font-display text-amber text-sm uppercase tracking-widest mb-6">Broadcast Schedule</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { flag: '🇿🇦', lang: 'English',   time: '07:00 – 10:00 & 13:00 – 22:00' },
             { flag: '🇿🇦', lang: 'Afrikaans', time: '10:00 – 13:00'                 },
             { flag: '🇿🇦', lang: 'isiZulu',   time: '04:00 – 07:00 & 15:00 – 16:00' },
             { flag: '🇿🇼', lang: 'ChiShona',  time: '16:00 – 19:00'                 },
           ].map(({ flag, lang, time }) => (
-            <div key={lang} className="bg-lane rounded p-3">
-              <p className="text-xl mb-1">{flag}</p>
-              <p className="font-ui text-sm font-bold text-ink">{lang}</p>
-              <p className="font-body text-xs text-ink-dim mt-0.5">{time}</p>
+            <div key={lang} className="bg-zinc-900 border border-marking p-4 hover:border-amber transition-colors">
+              <span className="text-2xl block mb-3">{flag}</span>
+              <p className="font-display text-lg text-ink uppercase leading-none">{lang}</p>
+              <p className="font-mono text-[9px] text-amber mt-2 tracking-tighter uppercase">{time}</p>
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* Advertise */}
-      <div className="card mb-4">
-        <div className="card-header">
-          <span className="card-title">Advertise With Us</span>
-        </div>
-        <div className="p-4">
-          <p className="font-body text-sm text-ink-muted leading-relaxed mb-4">
-            Reach truckers actively driving KZN routes. We offer pre-roll spots,
-            mid-roll breaks, road report sponsorships, and live reads in your
-            language of choice.
+      {/* Commercial Section */}
+      <section className="bg-amber text-black p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-md">
+          <h2 className="font-display text-2xl uppercase tracking-tighter mb-2">Advertise With Us</h2>
+          <p className="text-xs font-bold uppercase leading-tight">
+            Reach drivers actively on the KZN routes with precision-targeted live reads and road report sponsorships.
           </p>
-          <a
-            href="/portal"
-            className="btn-primary w-full text-center block"
-          >
-            Advertiser Portal →
-          </a>
         </div>
-      </div>
+        <a
+          href="/portal"
+          className="bg-black text-white px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-zinc-800 transition-colors"
+        >
+          Partner Portal →
+        </a>
+      </section>
 
-      {/* Contact */}
-      <div className="card mb-6">
-        <div className="card-header">
-          <span className="card-title">Contact</span>
-        </div>
-        <div className="p-4 flex flex-col gap-3">
-          <ContactItem icon="📧" label="Email"   value="hello@longhaulfm.co.za"  href="mailto:hello@longhaulfm.co.za" />
-          <ContactItem icon="📞" label="Studio"  value="+27 (0) XX XXX XXXX"     href="tel:+27XXXXXXXXXX" />
-          <ContactItem icon="📍" label="Region"  value="KwaZulu-Natal, South Africa" />
-          <ContactItem icon="📻" label="Stream"  value="longhaulfm.co.za"        href="/" />
-        </div>
-      </div>
+      {/* Contact Grid */}
+      <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 py-6 border-y border-marking">
+        <ContactItem label="General Inquiries" value="hello@longhaulfm.co.za" href="mailto:hello@longhaulfm.co.za" />
+        <ContactItem label="Studio WhatsApp" value="+27 (0) XX XXX XXXX" href="tel:+27XXXXXXXXXX" />
+        <ContactItem label="Regional Hub" value="KwaZulu-Natal, RSA" />
+        <ContactItem label="Digital Stream" value="longhaulfm.co.za" href="/" />
+      </section>
 
-      {/* Legal */}
-      <p className="font-body text-xs text-ink-dim text-center leading-relaxed">
-        Long Haul FM is licensed under SAMRO, SAMPRA and CAPASSO.
-        POPIA compliant. All broadcast rights reserved © {new Date().getFullYear()}.
-      </p>
+      {/* Compliance / Footer Footnote */}
+      <footer className="text-center space-y-2 opacity-50">
+        <p className="font-mono text-[9px] text-ink-dim uppercase tracking-widest">
+          Licensed under SAMRO, SAMPRA and CAPASSO · POPIA Compliant
+        </p>
+        <p className="font-mono text-[9px] text-ink-dim uppercase tracking-widest">
+          Broadcast Rights © {new Date().getFullYear()} · Infrastructure by Isuhamba Group
+        </p>
+      </footer>
     </div>
   )
 }
 
 function ContactItem({
-  icon, label, value, href,
+  label, value, href,
 }: {
-  icon: string; label: string; value: string; href?: string
+  label: string; value: string; href?: string
 }) {
-  const inner = (
-    <div className="flex items-center gap-3 py-2">
-      <span className="text-xl w-7 flex-shrink-0 text-center">{icon}</span>
-      <div>
-        <p className="font-ui text-xs text-ink-dim uppercase tracking-wider">{label}</p>
-        <p className="font-body text-sm text-ink">{value}</p>
-      </div>
+  const content = (
+    <div className="group">
+      <p className="font-mono text-[9px] text-amber uppercase tracking-widest mb-1">{label}</p>
+      <p className="font-display text-sm text-ink uppercase group-hover:text-amber transition-colors">{value}</p>
     </div>
   )
 
-  return href ? (
-    <a href={href} className="hover:text-amber transition-colors">{inner}</a>
-  ) : (
-    <div>{inner}</div>
-  )
+  return href ? <a href={href}>{content}</a> : <div>{content}</div>
 }
