@@ -1,9 +1,9 @@
-// app/about/page.tsx
 import type { Metadata } from 'next'
+import React from 'react'
 
 export const metadata: Metadata = {
   title: 'About — Longhaul FM',
-  description: 'About Longhaul FM, the broadcast infrastructure built for the brotherhood of the road.',
+  description: 'Technical manifest of the Longhaul FM broadcast infrastructure pilot.',
 }
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <header className="border-b border-marking pb-6">
         <h1 className="font-display text-4xl tracking-tight text-amber uppercase mb-2">Manifest</h1>
         <p className="font-mono text-[10px] text-ink-dim tracking-[0.3em] uppercase">
-          Longhaul FM · Registered Broadcast · Est. 2025
+          Longhaul FM · Infrastructure Pilot · Node: N3-Durban
         </p>
       </header>
 
@@ -25,17 +25,17 @@ export default function AboutPage() {
         </div>
         <div className="md:col-span-2 flex flex-col gap-4">
           <p className="font-body text-sm text-ink leading-relaxed">
-            Longhaul FM is built by truckers, for truckers. We broadcast across the SADC network—specifically the N3 corridor—because the road belongs to everyone on it.
+            Longhaul FM is an infrastructure project designed for the SADC logistics network. During this pilot phase, we are testing audio distribution stability across the N3 corridor to ensure a seamless "brotherhood of the road."
           </p>
           <p className="font-body text-sm text-ink-dim leading-relaxed">
-            We deliver live road alerts, carrier news, and the music that keeps the wheels turning—whether you're heading into Durban, climbing the Drakensberg, or parked up in Estcourt.
+            Our goal is to integrate real-time road telemetry, carrier updates, and regional content to improve driver safety and connectivity between Durban, the Drakensberg, and Johannesburg hubs.
           </p>
         </div>
       </section>
 
       {/* Broadcast Schedule / Languages */}
       <section className="border-t border-marking pt-10">
-        <h2 className="font-display text-amber text-sm uppercase tracking-widest mb-6">Broadcast Schedule</h2>
+        <h2 className="font-display text-amber text-sm uppercase tracking-widest mb-6">Pilot Broadcast Schedule</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { flag: '🇿🇦', lang: 'English',   time: '07:00 – 10:00 & 13:00 – 22:00' },
@@ -52,22 +52,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Commercial Section */}
-      <section className="bg-amber text-black p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="max-w-md">
-          <h2 className="font-display text-2xl uppercase tracking-tighter mb-2">Advertise With Us</h2>
-          <p className="text-xs font-bold uppercase leading-tight">
-            Reach drivers actively on the KZN routes with precision-targeted live reads and road report sponsorships.
-          </p>
-        </div>
-        <a
-          href="/portal"
-          className="bg-black text-white px-8 py-4 font-display uppercase tracking-widest text-sm hover:bg-zinc-800 transition-colors"
-        >
-          Partner Portal →
-        </a>
-      </section>
-
       {/* Contact Grid */}
       <section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 py-6 border-y border-marking">
         <ContactItem label="General Inquiries" value="hello@longhaulfm.co.za" href="mailto:hello@longhaulfm.co.za" />
@@ -77,12 +61,19 @@ export default function AboutPage() {
       </section>
 
       {/* Compliance / Footer Footnote */}
-      <footer className="text-center space-y-2 opacity-50">
-        <p className="font-mono text-[9px] text-ink-dim uppercase tracking-widest">
-          Licensed under SAMRO, SAMPRA and CAPASSO · POPIA Compliant
-        </p>
-        <p className="font-mono text-[9px] text-ink-dim uppercase tracking-widest">
-          Broadcast Rights © {new Date().getFullYear()} · Infrastructure by Isuhamba Group
+      <footer className="text-center space-y-4 opacity-60">
+        <div className="border border-amber/20 bg-amber/5 p-4 mb-4">
+          <p className="font-mono text-[9px] text-amber uppercase tracking-widest">
+            Notice: Technical Pilot Phase
+          </p>
+          <p className="font-body text-[10px] text-ink-dim leading-relaxed uppercase mt-1 max-w-2xl mx-auto">
+            This broadcast is a technical evaluation of the N3 corridor logistics infrastructure. 
+            Music licensing applications are currently in process with SAMRO, SAMPRA, and CAPASSO. 
+            The stream is intended for internal testing and signal quality assessment only.
+          </p>
+        </div>
+        <p className="font-mono text-[8px] text-ink-dim uppercase tracking-[0.2em]">
+          POPIA Compliant · Broadcast Rights & Infrastructure © {new Date().getFullYear()} Isuhamba Group
         </p>
       </footer>
     </div>
